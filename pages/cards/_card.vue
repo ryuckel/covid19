@@ -129,7 +129,9 @@ export default {
         updatedAt = agencyData.date
         break
       case 'positive-number-by-diagnosed-date':
-        title = this.$t('陽性患者数（検査結果判明日別）')
+        title = this.$t(
+          'PCR検査陽性者の発生動向（確定日別による陽性者数の推移）'
+        )
         updatedAt = PositiveByDiagnosedData.date
         break
     }

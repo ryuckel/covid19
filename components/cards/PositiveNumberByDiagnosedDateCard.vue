@@ -1,7 +1,7 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <time-bar-chart
-      :title="$t('陽性患者数（検査結果判明日別）')"
+      :title="$t('PCR検査陽性者の発生動向（確定日別による陽性者数の推移）')"
       :title-id="'positive-number-by-diagnosed-date'"
       :chart-id="'positive-number-by-diagnosed-date'"
       :chart-data="graphData"
@@ -20,6 +20,17 @@
           <li>
             {{
               $t('（注）チャーター機帰国者、クルーズ船乗客等は含まれていない')
+            }}
+          </li>
+        </ul>
+      </template>
+      <template v-slot:additionalNotes>
+        <ul :class="$style.GraphDesc">
+          <li>
+            {{
+              $t(
+                '（注）患者発生の動向をより正確に分析するため、各保健所から報告があった患者の発生情報を、PCR検査により陽性であることを医師が確認した日別（確定日別）に置き換えて整理したものである。'
+              )
             }}
           </li>
         </ul>
@@ -55,3 +66,15 @@ export default {
   }
 }
 </script>
+<style module lang="scss">
+.Graph {
+  &Desc {
+    margin: 0;
+    margin-top: 1rem;
+    padding-left: 0 !important;
+    color: $gray-3;
+    list-style: none;
+    @include font-size(12);
+  }
+}
+</style>
